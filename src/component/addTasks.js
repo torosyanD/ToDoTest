@@ -12,7 +12,7 @@ export const AddTasks = React.memo(({ addTest }) => {
             <form onSubmit={handleSubmit(add)} className='form1'>
                 <input placeholder='Lorem Ipsum' className='inp11'{...register("name")} />
                 <br />
-                <button style={{ color: "red", display: "flex", alignItems: "center",justifyContent:'center' }} className='btn11'>ADD</button>
+                <button style={{ color: "red", display: "flex", alignItems: "center",justifyContent:'center', }} className='btn11'>ADD</button>
             </form>
         </div>
     )

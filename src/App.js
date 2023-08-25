@@ -1,29 +1,37 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import { ShowTasks } from './component/showTasks';
 import { AddTasks } from './component/addTasks';
 
-function App() {
-  const [arr, setArr] = useState([
-    { id: 1, name: "Task1" },
-    { id: 2, name: "Task2" },
-    { id: 3, name: "Task3" }
 
-  ])
+
+function App() {
+  const [tasks, setTasks] = useState(() => {
+    const saved = localStorage.getItem("TaskData");
+    const initialValue = JSON.parse(saved);
+    return initialValue || "";
+  })
+
+
+  useEffect(() => {
+    localStorage.setItem('TaskData', JSON.stringify(tasks))
+  }, [tasks])
+
   const addTest = (data) => {
-    arr.push({ ...data, id: Date.now() })
-    setArr([...arr])
-    console.log(arr);
+    tasks.push({ ...data, id: Date.now() })
+    setTasks([...tasks])
+    console.log(tasks);
 
   }
   const deleteById = (id) => {
-    setArr([...arr.filter(e => e.id != id)])
+    setTasks([...tasks.filter(e => e.id != id)])
   }
+
   return (
     <div className='dv1' style={{ display: 'block', justifyContent: "center", alignItems: "center", width: "1000px", }} >
       <h1 style={{ display: "flex", justifyContent: "center" }}>Tasks</h1>
       <div className=''>
-        <ShowTasks arr={arr} deleteById={deleteById} />
+        <ShowTasks tasks={tasks} deleteById={deleteById} />
       </div>
       <hr />
 

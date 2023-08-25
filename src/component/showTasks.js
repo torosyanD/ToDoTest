@@ -1,7 +1,7 @@
 import React from "react";
 
-export const ShowTasks = React.memo(({ arr, deleteById }) => {
-    console.log(arr);
+export const ShowTasks = React.memo(({ tasks, deleteById }) => {
+    console.log(tasks);
     return (
         <div style={{ width: "1000px", height: "300px", display: "flex", alignItems: "end", justifyContent: "center" }}>
             <table>
@@ -12,7 +12,7 @@ export const ShowTasks = React.memo(({ arr, deleteById }) => {
                 </thead>
                 <tbody>
                     {
-                        arr.map((e) => {
+                        tasks.map((e) => {
                             return (
                                 <tr key={e.id} className="btn11">
                                     <td>
