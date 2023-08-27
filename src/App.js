@@ -30,15 +30,16 @@ function App() {
   return (
     <div className='dv1' style={{ display: 'block', justifyContent: "center", alignItems: "center", width: "1000px", }} >
       <h1 style={{ display: "flex", justifyContent: "center" }}>Tasks</h1>
-      <div className=''>
-        <ShowTasks tasks={tasks} deleteById={deleteById} />
-      </div>
-      <hr />
+      <div className='ddd1'>
+        <div className='ddd1'>
+          <ShowTasks tasks={tasks} deleteById={deleteById} />
+        </div>
+        <hr />
 
-      <div className=''>
-        <AddTasks addTest={addTest} />
+        <div className='ddd1'>
+          <AddTasks addTest={addTest} />
+        </div>
       </div>
-
 
     </div >
   );
